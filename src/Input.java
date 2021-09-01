@@ -7,7 +7,12 @@ public class Input {
     }
 
     public static String input_operation() {
-        return input();
+        if ((input() != "+") || (input() != "-") || (input() != "*") || (input() != "/")) {
+            Message.operation_error();
+            return "s";
+        } else {
+            return input();
+        }
     }
 
     public static String input_second() {

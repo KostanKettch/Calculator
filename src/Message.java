@@ -29,4 +29,9 @@ public class Message {
         String str_operation = String.valueOf(operation);
         System.out.println(str_first + ' ' + str_operation);
     }
+
+    public static void operation_error() {
+        System.out.println("Error! Unexeptable symbol");
+    }
+
 }
