@@ -1,6 +1,5 @@
 public class Calculator {
     public static void main(String[] args) {
-
         result_return();
     }
 
@@ -8,6 +7,7 @@ public class Calculator {
         Message.start();
         int first = 0;
         int second;
+
         try {
             first = Integer.parseInt(Input.input_number());
         } catch (NumberFormatException e) {
@@ -17,6 +17,7 @@ public class Calculator {
         do {
             Message.first(first);
             char operation = Input.input_operation().charAt(0);
+
             if (operation == 's') {
                 Message.quit();
                 break;
@@ -26,13 +27,16 @@ public class Calculator {
                 continue;
             }
             Message.operation(first, operation);
+
             try {
                 second = Integer.parseInt(Input.input_number());
             } catch (NumberFormatException e) {
                 Message.operation_error();
                 break;
             }
+
             String str_second = String.valueOf(second);
+
             if (str_second.equals("s")) {
                 Message.quit();
                 break;
