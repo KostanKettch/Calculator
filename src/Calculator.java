@@ -6,7 +6,13 @@ public class Calculator {
 
     private static void result_return() {
         Message.start();
-        int first = Integer.parseInt(Input.input_first());
+        int first = 0;
+        int second;
+        try {
+            first = Integer.parseInt(Input.input_number());
+        } catch (NumberFormatException e) {
+            Message.operation_error();
+        }
 
         do {
             Message.first(first);
@@ -16,19 +22,23 @@ public class Calculator {
                 break;
             } else if (operation == 'c') {
                 Message.reset();
-                first = Integer.parseInt(Input.input_first());
+                first = Integer.parseInt(Input.input_number());
                 continue;
             }
             Message.operation(first, operation);
-
-            int second = Integer.parseInt(Input.input_second());
+            try {
+                second = Integer.parseInt(Input.input_number());
+            } catch (NumberFormatException e) {
+                Message.operation_error();
+                break;
+            }
             String str_second = String.valueOf(second);
             if (str_second.equals("s")) {
                 Message.quit();
                 break;
             } else if (str_second.equals("c")) {
                 Message.reset();
-                first = Integer.parseInt(Input.input_first());
+                first = Integer.parseInt(Input.input_number());
                 continue;
             }
 
